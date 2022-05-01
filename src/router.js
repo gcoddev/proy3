@@ -144,7 +144,7 @@ const routes = [
     {
         path: '/login',
         name: 'login',
-        component: () => import('./pages/Login.vue')
+        component: () => import('./pages/Login.vue'),
     },
     {
         path: '/landing',
