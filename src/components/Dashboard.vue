@@ -1,6 +1,9 @@
 <template>
 	<div class="grid">
-		<div class="col-12 lg:col-6 xl:col-3">
+		<div>
+			<p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Facilis officia cupiditate molestias aspernatur incidunt nesciunt ut, perspiciatis totam animi atque expedita nobis nihil ad magnam mollitia ratione delectus possimus placeat!</p>
+		</div>
+		<!-- <div class="col-12 lg:col-6 xl:col-3">
 			<div class="card mb-0">
 				<div class="flex justify-content-between mb-3">
 					<div>
@@ -237,7 +240,7 @@
 				</a>
 			</div>
 		</div>
-	</div>
+	</div> -->
 	</div>
 </template>
 

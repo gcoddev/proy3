@@ -37,12 +37,7 @@ export default {
     EventBus.off("theme-change", this.themeChangeListener);
   },
   created() {
-    console.log("creado");
-    if (localStorage.getItem("logInOut") == 'true') {
-      console.log("Sesion");
-      this.$router.push('/')
-    } else {
-      console.log("no sesion");
+    if (localStorage.getItem("auth") != 'true') {
       this.$router.push('login')
     }
   },

@@ -6,6 +6,9 @@ const routes = [
         path: '/',
         name: 'app',
         component: App,
+        meta: {
+            requiresAuth: true
+        },
         children: [
             {
                 path: '',
@@ -157,15 +160,15 @@ const routes = [
         component: () => import('./pages/Error.vue')
     },
     {
+        path: '/access',
+        name: 'access',
+        component: () => import('./pages/Access.vue')
+    },
+    {
         path: '/notfound',
         name: 'notfound',
         component: () => import('./pages/NotFound.vue')
     },
-    {
-        path: '/access',
-        name: 'access',
-        component: () => import('./pages/Access.vue')
-    }
 ];
 
 const router = createRouter({

@@ -13,7 +13,7 @@
 				<Button icon="pi pi-plus"  @click="incrementScale()" class="p-button-text" :disabled="scale === scales[scales.length - 1]" />
 			</div>
 
-			<h5>Input Style</h5>
+			<!-- <h5>Input Style</h5>
 			<div class="p-formgroup-inline">
 				<div class="field-radiobutton">
 					<RadioButton id="input_outlined" name="inputstyle" value="outlined" :modelValue="$primevue.config.inputStyle" @change="changeInputStyle('outlined')" />
@@ -38,10 +38,10 @@
 					<RadioButton id="overlay" name="layoutMode" value="overlay" v-model="d_layoutMode" @change="changeLayout($event, 'overlay')" />
 					<label for="overlay">Overlay</label>
 				</div>
-			</div>
+			</div> -->
 
-			<h5>Themes</h5>
-			<h6 class="mt-0">Bootstrap</h6>
+			<h5>Temas</h5>
+			<!-- <h6 class="mt-0">Bootstrap</h6> -->
 			<div class="grid free-themes">
 				<div class="col-3 text-center">
 					<button class="p-link" type="button" @click="changeTheme($event, 'bootstrap4-light-blue', false)">
@@ -64,7 +64,7 @@
 					</button>
 				</div>
 			</div>
-
+<!-- 
 			<h6>Material Design</h6>
 			<div class="grid free-themes">
 				<div class="col-3 text-center">
@@ -237,7 +237,7 @@
 						<img class="block" src="images/themes/arya-purple.png" alt="Arya Purple" />
 					</button>
 				</div>
-			</div>
+			</div> -->
 		</div>
 	</div>
 </template>

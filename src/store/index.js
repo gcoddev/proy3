@@ -5,26 +5,21 @@ export default createStore({
     username: '',
     passwordVerify: '',
     userExist: false,
+    auth: false,
     users: [
-      { username: 'gcoddev', password: 'yakys'},
-      { username: 'mojon', password: '123'},
+      { username: 'gary', password: 'yakys'},
+      { username: 'admin', password: '123'},
     ]
   },
   getters: {
   },
   mutations: {
-    iniciarSesion(state) {
-      if (state.username === 'gcoddev') {
-        if (state.password === 'yakys') {
-          localStorage.setItem('logInOut', true)
-          location.reload()
-        }
-      }
+    iniciarSesion() {
+      localStorage.setItem('auth', true)
+      location.reload()
     },
-    cerrarSesion(state) {
-      console.log('cerrar sesion');
-      state.password = ''
-      localStorage.setItem('logInOut', false)
+    cerrarSesion() {
+      localStorage.setItem('auth', false)
       location.reload()
     },
     buscarUsuario(state) {
@@ -34,7 +29,8 @@ export default createStore({
           state.passwordVerify = user.password
         }
       });
-    }
+    },
+    resetUsername(state) { state.username = '' },
   },
   actions: {
   },

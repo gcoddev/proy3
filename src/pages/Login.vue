@@ -10,86 +10,99 @@
     "
     @keyup.enter="verificarUsuario()"
   >
-    <Toast />
-    <div class="grid justify-content-center p-2 lg:p-0" style="min-width: 80%">
-      <div class="col-12 mt-5 xl:mt-0 text-center">
-        <img
-          :src="'layout/images/logo-' + logoColor + '.svg'"
-          alt="Sakai logo"
-          class="mb-5"
-          style="width: 81px; height: 60px"
-        />
-      </div>
+    <div class="form-content">
+      <Toast />
       <div
-        class="col-12 xl:col-6"
-        style="
-          border-radius: 56px;
-          padding: 0.3rem;
-          background: linear-gradient(
-            180deg,
-            var(--primary-color),
-            rgba(33, 150, 243, 0) 30%
-          );
-        "
+        class="grid justify-content-center p-2 lg:p-0"
       >
+        <div class="col-12 mt-1 text-center">
+          <img
+            src="@/assets/images/upea_logo.png"
+            alt="UPEA logo"
+            style="width: 150px"
+          />
+          <!-- <img
+            :src="'layout/images/logo-' + logoColor + '.svg'"
+            alt="Sakai logo"
+            class="mb-5"
+            style="width: 81px; height: 60px"
+          /> -->
+        </div>
         <div
-          class="h-full w-full m-0 py-7 px-4"
+          class="col-12"
           style="
-            border-radius: 53px;
+            border-radius: 56px;
+            padding: 0.3rem;
             background: linear-gradient(
               180deg,
-              var(--surface-50) 38.9%,
-              var(--surface-0)
+              var(--primary-color),
+              rgba(33, 150, 243, 0) 30%
             );
           "
         >
-          <div class="text-center mb-5">
-            <img
-              src="layout/images/avatar.png"
-              alt="Image"
-              height="50"
-              class="mb-3"
-            />
-            <div class="text-900 text-3xl font-medium mb-3">
-              Bienvenido, {{ username }}!
+          <div
+            class="h-full w-full m-0 py-7 px-4"
+            style="
+              border-radius: 53px;
+              background: linear-gradient(
+                180deg,
+                var(--surface-50) 38.9%,
+                var(--surface-0)
+              );
+            "
+          >
+            <div class="text-center">
+              <img
+                src="@/assets/images/avatar-male.png"
+                alt="Image"
+                height="50"
+              />
+              <div class="text-900 text-3xl font-medium mb-3">Bienvenido!</div>
+              <span class="text-600 font-medium"
+                >Inicie sesion para continuar</span
+              >
             </div>
-            <span class="text-600 font-medium"
-              >Inicie sesion para continuar</span
-            >
-          </div>
 
-          <div class="w-full md:w-10 mx-auto">
-            <label
-              for="username"
-              class="block text-900 text-xl font-medium mb-2"
-              >Usuario</label
-            >
-            <InputText
-              id="username"
-              v-model="$store.state.username"
-              type="text"
-              class="w-full mb-3"
-              placeholder="Nombre de usuario"
-              style="padding: 1rem"
-            />
+            <div class="w-full md:w-10 mx-auto">
+              <label
+                for="username"
+                class="block text-900 text-xl font-medium mb-2"
+                >Usuario</label
+              >
+              <InputText
+                id="username"
+                v-model="$store.state.username"
+                type="text"
+                class="w-full mb-3"
+                placeholder="Nombre de usuario"
+                style="padding: 1rem"
+              />
 
-            <label
-              for="password1"
-              class="block text-900 font-medium text-xl mb-2"
-              >Password</label
-            >
-            <Password
+              <label
+                for="password1"
+                class="block text-900 font-medium text-xl mb-2"
+                >Contraseña</label
+              >
+              <InputText
+                id="password1"
+                v-model="password"
+                type="password"
+                class="w-full mb-3"
+                placeholder="Ingrese su contraseña"
+                style="padding: 1rem"
+              />
+              <!-- <Password
               id="password1"
               v-model="password"
-              placeholder="Password"
+              placeholder="Ingrese su contraseña"
               :toggleMask="true"
               class="w-full mb-3"
               inputClass="w-full"
               inputStyle="padding:1rem"
-            ></Password>
+            ></Password> -->
 
-            <div class="flex align-items-center justify-content-between mb-5">
-              <div class="flex align-items-center">
+              <div class="flex align-items-center justify-content-end mb-5">
+                <!-- <div class="flex align-items-center">
                 <Checkbox
                   id="rememberme1"
                   v-model="checked"
@@ -97,22 +110,30 @@
                   class="mr-2"
                 ></Checkbox>
                 <label for="rememberme1">Remember me</label>
+              </div> -->
+                <a
+                  class="
+                    font-medium
+                    no-underline
+                    ml-2
+                    text-right
+                    cursor-pointer
+                  "
+                  style="color: var(--primary-color)"
+                  >¿Olvidaste tu contraseña?</a
+                >
               </div>
-              <a
-                class="font-medium no-underline ml-2 text-right cursor-pointer"
-                style="color: var(--primary-color)"
-                >Forgot password?</a
-              >
+              <Button
+                label="Iniciar sesion"
+                class="w-full p-3 text-xl"
+                @click="verificarUsuario()"
+              ></Button>
             </div>
-            <Button
-              label="Iniciar sesion"
-              class="w-full p-3 text-xl"
-              @click="verificarUsuario()"
-            ></Button>
           </div>
         </div>
       </div>
     </div>
+    <img src="@/assets/images/Fondo2.jpg" alt="Fondo UPEA" class="bg_upea" />
   </div>
 </template>
 
@@ -127,26 +148,39 @@ export default {
     };
   },
   methods: {
-    ...mapMutations(["iniciarSesion", "buscarUsuario"]),
+    ...mapMutations([
+      "iniciarSesion",
+      "buscarUsuario",
+      "resetUsername",
+      "resetPassword",
+    ]),
     verificarUsuario() {
       if (this.username != "") {
         this.buscarUsuario();
         if (this.userExist) {
           if (this.password != "") {
             if (this.passwordVerify == this.password) {
-              this.showSuccess('Inicio sesion', 'Inicio de sesion correcto')
+              // this.showSuccess("Inicio sesion", "Inicio de sesion correcto");
+              this.iniciarSesion()
             } else {
+              this.resetPassword();
               this.showWarn("Contraseña", "Error de contraseña");
             }
           } else {
             this.showError("Contraseña", "Debe ingresar su contraseña");
           }
         } else {
+          this.resetUsername();
+          this.resetPassword();
           this.showWarn("Usuario", "Nombre de usuario no existe");
         }
       } else {
+        this.resetPassword();
         this.showError("Usuario", "Debe ingresar el nombre de usuario");
       }
+    },
+    resetPassword() {
+      this.password = "";
     },
     showWarn(summary, detail) {
       this.$toast.add({
@@ -175,11 +209,18 @@ export default {
   },
   computed: {
     ...mapState(["username", "userExist", "passwordVerify"]),
-    logoColor() {
-      if (this.$appState.darkTheme) return "white";
-      return "dark";
-    },
+    // logoColor() {
+    //   if (this.$appState.darkTheme) return "white";
+    //   return "dark";
+    // },
   },
+  created() {
+    console.log('login');
+    if (localStorage.getItem('auth') == 'true') {
+      this.$router.push('/')
+      // location.reload()
+    }
+  }
 };
 </script>
 
@@ -192,5 +233,21 @@ export default {
 .pi-eye-slash {
   transform: scale(1.6);
   margin-right: 1rem;
+}
+.bg_upea {
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  z-index: 0;
+  object-fit: cover;
+  object-position: left;
+}
+.form-content {
+  z-index: 1;
+  width: 90%;
+  max-width: 500px;
+  background-color: #ffffffdd;
+  border-radius: 25px;
+  padding-top: 25px;
 }
 </style>
