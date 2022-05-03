@@ -8,7 +8,9 @@
       min-h-screen min-w-screen
       overflow-hidden
     "
+    @keyup.enter="verificarUsuario()"
   >
+    <Toast />
     <div class="grid justify-content-center p-2 lg:p-0" style="min-width: 80%">
       <div class="col-12 mt-5 xl:mt-0 text-center">
         <img
@@ -78,7 +80,7 @@
             >
             <Password
               id="password1"
-              v-model="$store.state.password"
+              v-model="password"
               placeholder="Password"
               :toggleMask="true"
               class="w-full mb-3"
@@ -105,7 +107,7 @@
             <Button
               label="Iniciar sesion"
               class="w-full p-3 text-xl"
-              @click="iniciarSesion()"
+              @click="verificarUsuario()"
             ></Button>
           </div>
         </div>
@@ -120,16 +122,59 @@ import { mapMutations, mapState } from "vuex";
 export default {
   data() {
     return {
-      email: "",
       password: "",
       checked: false,
     };
   },
   methods: {
-    ...mapMutations(["iniciarSesion"]),
+    ...mapMutations(["iniciarSesion", "buscarUsuario"]),
+    verificarUsuario() {
+      if (this.username != "") {
+        this.buscarUsuario();
+        if (this.userExist) {
+          if (this.password != "") {
+            if (this.passwordVerify == this.password) {
+              this.showSuccess('Inicio sesion', 'Inicio de sesion correcto')
+            } else {
+              this.showWarn("Contraseña", "Error de contraseña");
+            }
+          } else {
+            this.showError("Contraseña", "Debe ingresar su contraseña");
+          }
+        } else {
+          this.showWarn("Usuario", "Nombre de usuario no existe");
+        }
+      } else {
+        this.showError("Usuario", "Debe ingresar el nombre de usuario");
+      }
+    },
+    showWarn(summary, detail) {
+      this.$toast.add({
+        severity: "warn",
+        summary: summary,
+        detail: detail,
+        life: 3000,
+      });
+    },
+    showError(summary, detail) {
+      this.$toast.add({
+        severity: "error",
+        summary: summary,
+        detail: detail,
+        life: 3000,
+      });
+    },
+    showSuccess(summary, detail) {
+      this.$toast.add({
+        severity: "success",
+        summary: summary,
+        detail: detail,
+        life: 3000,
+      });
+    },
   },
   computed: {
-    ...mapState(["username"]),
+    ...mapState(["username", "userExist", "passwordVerify"]),
     logoColor() {
       if (this.$appState.darkTheme) return "white";
       return "dark";
