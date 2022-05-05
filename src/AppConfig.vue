@@ -46,18 +46,22 @@
 				<div class="col-3 text-center">
 					<button class="p-link" type="button" @click="changeTheme($event, 'bootstrap4-light-blue', false)">
 						<img class="block" src="images/themes/bootstrap4-light-blue.svg" alt="Bootstrap Light Blue" />
+						<!-- <span class="text-white">Tema 1 Claro</span> -->
 					</button>
 				</div>
+
 				<div class="col-3 text-center">
 					<button class="p-link" type="button" @click="changeTheme($event, 'bootstrap4-light-purple', false)">
 						<img class="block" src="images/themes/bootstrap4-light-purple.svg" alt="Bootstrap Light Blue" />
 					</button>
 				</div>
+
 				<div class="col-3 text-center">
 					<button class="p-link" type="button" @click="changeTheme($event, 'bootstrap4-dark-blue', true)">
 						<img class="block" src="images/themes/bootstrap4-dark-blue.svg" alt="Bootstrap Dark Blue" />
 					</button>
 				</div>
+				
 				<div class="col-3 text-center">
 					<button class="p-link" type="button" @click="changeTheme($event, 'bootstrap4-dark-purple', true)">
 						<img class="block" src="images/themes/bootstrap4-dark-purple.svg" alt="Bootstrap Dark Blue" />

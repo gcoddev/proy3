@@ -37,8 +37,8 @@ export default {
     EventBus.off("theme-change", this.themeChangeListener);
   },
   created() {
-    if (localStorage.getItem("auth") != 'true') {
-      this.$router.push('login')
+    if (localStorage.getItem("auth") != "true") {
+      this.$router.push("login");
     }
   },
 };

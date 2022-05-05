@@ -1,4 +1,5 @@
 import { createStore } from 'vuex'
+import usersJSON from './users.json'
 
 export default createStore({
   state: {
@@ -6,10 +7,7 @@ export default createStore({
     passwordVerify: '',
     userExist: false,
     auth: false,
-    users: [
-      { username: 'gary', password: 'yakys'},
-      { username: 'admin', password: '123'},
-    ]
+    users: usersJSON
   },
   getters: {
   },

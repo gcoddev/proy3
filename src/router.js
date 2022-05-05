@@ -6,9 +6,6 @@ const routes = [
         path: '/',
         name: 'app',
         component: App,
-        meta: {
-            requiresAuth: true
-        },
         children: [
             {
                 path: '',
