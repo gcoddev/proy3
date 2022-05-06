@@ -9,7 +9,7 @@
       />
     </a>
     by
-    <span class="font-medium ml-2">SIE - UPEA</span>
+    <span class="font-medium ml-2">Gary</span>
   </div>
 </template>
 

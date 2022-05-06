@@ -3,6 +3,7 @@
 </template>
 
 <script>
+// import { mapMutations } from 'vuex';
 import EventBus from "./AppEventBus";
 
 export default {
@@ -32,14 +33,17 @@ export default {
     };
 
     EventBus.on("theme-change", this.themeChangeListener);
-  },
-  beforeUnmount() {
-    EventBus.off("theme-change", this.themeChangeListener);
-  },
-  created() {
+
     if (localStorage.getItem("auth") != "true") {
       this.$router.push("login");
     }
   },
+  beforeUnmount() {
+    EventBus.off("theme-change", this.themeChangeListener);
+  },
+  methods: {
+  },
+  created() {
+  }
 };
 </script>

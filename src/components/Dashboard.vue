@@ -24,7 +24,7 @@
         <span class="text-500">since last visit</span>
       </div>
     </div>
-		
+
     <div class="col-12 lg:col-6 xl:col-3">
       <div class="card mb-0">
         <div class="flex justify-content-between mb-3">
@@ -645,6 +645,6 @@ export default {
         },
       };
     },
-  },
+  }
 };
 </script>

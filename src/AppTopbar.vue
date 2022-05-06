@@ -26,22 +26,22 @@
     </button>
     <ul class="layout-topbar-menu hidden lg:flex origin-top mr-4">
       <li class="title-hover" data-title="Eventos">
-        <button class="p-link layout-topbar-button">
+        <router-link to="/events" class="p-link layout-topbar-button">
           <i class="pi pi-calendar"></i>
           <span>Eventos</span>
-        </button>
+        </router-link>
       </li>
       <li class="title-hover" data-title="Configuracion">
-        <button class="p-link layout-topbar-button">
+        <router-link to="/config" class="p-link layout-topbar-button">
           <i class="pi pi-cog"></i>
           <span>Configuracion</span>
-        </button>
+        </router-link>
       </li>
       <li class="title-hover" data-title="Perfil">
-        <button class="p-link layout-topbar-button">
+        <router-link to="/profile" class="p-link layout-topbar-button">
           <i class="pi pi-user"></i>
           <span>Perfil</span>
-        </button>
+        </router-link>
       </li>
       <li class="title-hover" data-title="Cerrar sesion">
         <button class="p-link layout-topbar-button" @click="cerrarSesion()">
@@ -79,6 +79,9 @@ export default {
 </script>
 
 <style scoped>
+.p-link.router-link-exact-active {
+  color: var(--primary-color);
+}
 .title-hover {
   position: relative;
 }

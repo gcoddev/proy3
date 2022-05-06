@@ -1,26 +1,41 @@
 [
   {
     "id": 100,
-    "username": "gary",
-    "password": "yakys",
-    "paterno": "Apaza",
-    "materno": "Mamani",
-    "nombres": "Gary"
-  },
-  {
-    "id": 101,
     "username": "gcoddev",
     "password": "yakys",
     "paterno": "Apaza",
     "materno": "Mamani",
-    "nombres": "Gary"
+    "nombres": "Gary Limbert",
+    "roles": {
+      "pro": "Desarrollador FullStack",
+      "medium": "Programador",
+      "noob": "Instructor"
+    }
+  },
+  {
+    "id": 101,
+    "username": "gary",
+    "password": "yakys",
+    "paterno": "Apaza",
+    "materno": "Mamani",
+    "nombres": "Gary Limbert",
+    "roles": {
+      "pro": "Desarrollador FullStack",
+      "medium": "Programador",
+      "noob": "Instructor"
+    }
   },
   {
     "id": 102,
     "username": "admin",
-    "password": "admin",
+    "password": "admin123",
     "paterno": "Admin",
     "materno": "Admin",
-    "nombres": "Admin"
+    "nombres": "Admin",
+    "roles": {
+      "pro": "PRO",
+      "medium": "MEDIUM",
+      "noob": "NOOB"
+    }
   }
 ]

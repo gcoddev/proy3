@@ -1,5 +1,6 @@
 import { createStore } from 'vuex'
 import usersJSON from './users.json'
+// import axios from 'axios'
 
 export default createStore({
   state: {
@@ -7,28 +8,33 @@ export default createStore({
     passwordVerify: '',
     userExist: false,
     auth: false,
-    users: usersJSON
+    userAuth: [],
   },
   getters: {
   },
   mutations: {
-    iniciarSesion() {
+    iniciarSesion(state) {
       localStorage.setItem('auth', true)
+      localStorage.setItem('userAuth', JSON.stringify(state.userAuth))
       location.reload()
     },
     cerrarSesion() {
       localStorage.setItem('auth', false)
+      localStorage.setItem('userAuth', null)
       location.reload()
     },
     buscarUsuario(state) {
-      state.users.forEach(user => {
+      let users = usersJSON
+      users.forEach(user => {
         if (user.username == state.username) {
           state.userExist = true
           state.passwordVerify = user.password
+          state.userAuth = user
+          // console.log(state.userAuth);
         }
       });
     },
-    resetUsername(state) { state.username = '' },
+    resetUsername(state) { state.username = '' }
   },
   actions: {
   },

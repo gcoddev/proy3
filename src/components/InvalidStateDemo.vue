@@ -21,10 +21,10 @@
                         <label for="chips">Chips</label>
                         <Chips id="chips" v-model="value4" class="p-invalid" />
                     </div>
-                    <div class="field">
+                    <!-- <div class="field">
                         <label for="password">Password</label>
                         <Password id="password" v-model="value10" class="p-invalid" />
-                    </div>
+                    </div> -->
                 </div>
 
                 <div class="col-12 md:col-6">

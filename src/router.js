@@ -18,6 +18,11 @@ const routes = [
                 component: () => import('./components/FormLayoutDemo.vue')
             },
             {
+                path: '/profile',
+                name: 'profile',
+                component: () => import('./components/Profile.vue')
+            },
+            {
                 path: '/input',
                 name: 'input',
                 component: () => import('./components/InputDemo.vue')
@@ -162,7 +167,7 @@ const routes = [
         component: () => import('./pages/Access.vue')
     },
     {
-        path: '/notfound',
+        path: '/:pathMatch(.*)*',
         name: 'notfound',
         component: () => import('./pages/NotFound.vue')
     },

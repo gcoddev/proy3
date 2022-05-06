@@ -8,15 +8,15 @@
                 <div class="flex justify-content-center h-full w-full m-0 py-7 px-4" style="border-radius:53px; background: linear-gradient(180deg, var(--surface-50) 38.9%, var(--surface-0));">
                     <div class="grid flex-column align-items-center">
                         <span class="text-blue-500 font-bold text-3xl">404</span>
-                        <h1 class="text-900 font-bold text-3xl lg:text-5xl mb-2">Looks like you are lost</h1>
-                        <span class="text-gray-600">Requested resource is not available.</span>
+                        <h1 class="text-900 font-bold text-3xl lg:text-5xl mb-2">Parece que estas perdido</h1>
+                        <span class="text-gray-600">El recurso solicitado no existe.</span>
                         <div class="col-12 flex align-items-center py-5 mt-6 border-300 border-bottom-1">
                             <div class="flex justify-content-center align-items-center bg-cyan-400 border-round" style="height:3.5rem; width:3.5rem;">
                                 <i class="pi pi-fw pi-table text-50 text-2xl"></i>
                             </div>
                             <div class="ml-4">
                                 <router-link to="/">
-                                    <p class="text-900 lg:text-xl font-medium mb-0">Frequently Asked Questions</p>
+                                    <p class="text-900 lg:text-xl font-medium mb-0">Preguntas frecuentes</p>
                                 </router-link>
                                 <span class="text-gray-600 lg:text-xl">Ultricies mi quis hendrerit dolor.</span>
                             </div>
@@ -27,7 +27,7 @@
                             </div>
                             <div class="ml-4">
                                 <router-link to="/">
-                                    <p class="text-900 lg:text-xl font-medium mb-0">Solution Center</p>
+                                    <p class="text-900 lg:text-xl font-medium mb-0">Centro de soluciones</p>
                                 </router-link>
                                 <span class="text-gray-600 lg:text-xl">Phasellus faucibus scelerisque eleifend.</span>
                             </div>
@@ -38,14 +38,14 @@
                             </div>
                             <div class="ml-4">
                                 <router-link to="/">
-                                    <p class="text-900 lg:text-xl font-medium mb-0">Permission Manager</p>
+                                    <p class="text-900 lg:text-xl font-medium mb-0">Administrador de servicios</p>
                                 </router-link>
                                 <span class="text-gray-600 lg:text-xl">Accumsan in nisl nisi scelerisque</span>
                             </div>
                         </div>
                         <div class="col-12 mt-5 text-center">
                             <i class="pi pi-fw pi-arrow-left text-blue-500 mr-2" style="vertical-align:center;"></i>
-                            <router-link to="/" class="text-blue-500">Go to Dashboard</router-link>
+                            <router-link to="/" class="text-blue-500">Volver a inicio</router-link>
                         </div>
                     </div>
                 </div>
