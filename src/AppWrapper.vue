@@ -5,6 +5,7 @@
 <script>
 // import { mapMutations } from 'vuex';
 import EventBus from "./AppEventBus";
+import axios from 'axios'
 
 export default {
   themeChangeListener: null,
