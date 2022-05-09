@@ -2,47 +2,38 @@
   <div class="grid">
     <div class="col-12 md:col-6">
       <div class="card">
-        <h5>Datos de usuario</h5>
-        <div class="p-fluid">
-          <div class="grid">
-            <div class="col-6"><b>Id:</b> {{ userAuth.id }}</div>
-            <div class="col-6">
-              <img
-                src="@/assets/images/avatar-male.png"
-                alt="foto_perfil"
-                width="75"
-              />
-            </div>
-            <div class="col-6">
-              <b>Nombre de usuario:</b> {{ userAuth.username }}
-            </div>
-            <div class="col-6">
-              <input type="file" name="avatar" id="avatar" style="width: 90%; box-sizing: border-box;" />
-            </div>
-          </div>
-        </div>
-        <hr />
         <h5>Datos Personales</h5>
         <div class="p-fluid">
           <div class="grid">
-            <div class="col-6">
-              <b>Apellido paterno:</b> {{ userAuth.paterno }}
+            <div class="col-12">
+              <b>Apellido:</b> {{ userAdminData.apellido }}
             </div>
-            <div class="col-6">
-              <b>Apellido materno:</b> {{ userAuth.materno }}
+            <div class="col-12">
+              <b>Apellido materno:</b> {{ userAdminData.nombre }}
             </div>
-            <div class="col-6"><b>Nombres:</b> {{ userAuth.nombres }}</div>
+            <div class="col-12">
+              <b>Celular:</b> {{ userAdminData.celular }}
+            </div>
+            <div class="col-12">
+              <b>email:</b> {{ userAdminData.gmail }}
+            </div>
+            <div class="col-12">
+              <b>roles:</b> {{ userAdminData.roles }}
+            </div>
+            <div class="col-12">
+              <img src="userAdminData.imagen" alt="">
+            </div>
           </div>
         </div>
         <hr />
         <h5>Roles</h5>
-        <div class="p-fluid">
+        <!-- <div class="p-fluid">
           <div class="grid">
             <div class="col-6" v-for="(rol, id) of userAuth.roles" :key="id">
               <b style="text-transform: capitalize">{{ id }}:</b> {{ rol }}
             </div>
           </div>
-        </div>
+        </div> -->
       </div>
     </div>
     <div class="col-12 md:col-6">
@@ -98,7 +89,7 @@ export default {
     };
   },
   computed: {
-    ...mapState(["userAuth"]),
+    ...mapState(["userAdminData"]),
   },
 };
 </script>

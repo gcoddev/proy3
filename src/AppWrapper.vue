@@ -5,7 +5,7 @@
 <script>
 // import { mapMutations } from 'vuex';
 import EventBus from "./AppEventBus";
-import axios from 'axios'
+// import axios from 'axios'
 
 export default {
   themeChangeListener: null,
@@ -43,8 +43,17 @@ export default {
     EventBus.off("theme-change", this.themeChangeListener);
   },
   methods: {
+    // async getApi() {
+    //   try {
+    //     let api = await axios.get('https://serviciopagina.upea.bo/api/')
+    //     console.log(api.data);
+    //   } catch (error) {
+    //     //
+    //   }
+    // }
   },
   created() {
+    // this.getApi()
   }
 };
 </script>

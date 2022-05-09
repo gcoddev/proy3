@@ -306,7 +306,7 @@ export default {
     verificarToken() {
       return false
     },
-    ...mapState(['userAuth'])
+    ...mapState(["userAuth", 'userAdminData']),
   },
   beforeUpdate() {
     if (this.mobileMenuActive)
@@ -321,6 +321,7 @@ export default {
   },
   created() {
     this.$store.state.userAuth = JSON.parse(localStorage.getItem('userAuth'))
+    this.$store.state.userAdminData = JSON.parse(localStorage.getItem('userAdminData'))
   }
 };
 </script>
