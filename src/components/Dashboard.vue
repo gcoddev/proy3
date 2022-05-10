@@ -5,7 +5,7 @@
         {{ userAuth.message }}
       </h2>
       <div class="card">
-        {{ userAuth.credentialP }}
+        {{ userAdminData }}
       </div>
       <!-- <div class="card">
         <h5>Recent Sales</h5>

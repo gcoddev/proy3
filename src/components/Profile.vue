@@ -14,26 +14,13 @@
             <div class="col-12">
               <b>Celular:</b> {{ userAdminData.celular }}
             </div>
+            <div class="col-12"><b>email:</b> {{ userAdminData.gmail }}</div>
+            <div class="col-12"><b>roles:</b> {{ userAdminData.roles }}</div>
             <div class="col-12">
-              <b>email:</b> {{ userAdminData.gmail }}
-            </div>
-            <div class="col-12">
-              <b>roles:</b> {{ userAdminData.roles }}
-            </div>
-            <div class="col-12">
-              <img src="userAdminData.imagen" alt="">
+              <img src="userAdminData.imagen" alt="userAdminData.imagen" />
             </div>
           </div>
         </div>
-        <hr />
-        <h5>Roles</h5>
-        <!-- <div class="p-fluid">
-          <div class="grid">
-            <div class="col-6" v-for="(rol, id) of userAuth.roles" :key="id">
-              <b style="text-transform: capitalize">{{ id }}:</b> {{ rol }}
-            </div>
-          </div>
-        </div> -->
       </div>
     </div>
     <div class="col-12 md:col-6">
@@ -68,6 +55,21 @@
           <div class="field col-12 md:col-3">
             <label for="zip">Zip</label>
             <InputText id="zip" type="text" />
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-6">
+      <h5>Roles</h5>
+      <div class="card" v-for="(item, id) of userAdminData.rutas" :key="id">
+        <div class="p-fluid">
+          <div class="grid">
+            <div class="col-12">
+              <p>privi_estado: {{ item.privi_estado }}</p>
+              <p>tab_descripcion: {{ item.tab_descripcion }}</p>
+              <p>tab_link_funcion: {{ item.tab_link_funcion }}</p>
+              <p>tab_nombre: {{ item.tab_nombre }}</p>
+            </div>
           </div>
         </div>
       </div>

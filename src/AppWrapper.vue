@@ -5,7 +5,8 @@
 <script>
 // import { mapMutations } from 'vuex';
 import EventBus from "./AppEventBus";
-// import axios from 'axios'
+import axios from "axios";
+import { mapMutations } from 'vuex';
 
 export default {
   themeChangeListener: null,
@@ -34,15 +35,12 @@ export default {
     };
 
     EventBus.on("theme-change", this.themeChangeListener);
-
-    if (localStorage.getItem("auth") != "true") {
-      this.$router.push("login");
-    }
   },
   beforeUnmount() {
     EventBus.off("theme-change", this.themeChangeListener);
   },
   methods: {
+    ...mapMutations(['cerrarSesion']),
     // async getApi() {
     //   try {
     //     let api = await axios.get('https://serviciopagina.upea.bo/api/')
@@ -51,9 +49,31 @@ export default {
     //     //
     //   }
     // }
+    async verificarToken() {
+      try {
+        let uA = JSON.parse(localStorage.getItem("userAuth"));
+        let tkn = {
+          token: uA.token,
+        };
+        let tkv = await axios.post(
+          "https://serviciopagina.upea.bo/api/VerificarToken/",
+          tkn
+        );
+        if (tkv.data.message == "Ocurrió un error") {
+          this.cerrarSesion()
+        } else {
+          console.log('token valido');
+        }
+      } catch (error) {
+        console.log(error);
+      }
+    },
   },
   created() {
-    // this.getApi()
-  }
+    this.verificarToken();
+    if (localStorage.getItem("auth") != "true") {
+      this.$router.push("login");
+    }
+  },
 };
 </script>

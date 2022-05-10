@@ -148,6 +148,24 @@ export default {
     };
   },
   methods: {
+    async getAdminData(data) {
+      try {
+        let adminData = await axios.get(
+          `/DatosUsuarioAdmin/${data.credentialP}`,
+          {
+            headers: {
+              Authorization: "Bearer " + data.token,
+            },
+          }
+        );
+        localStorage.setItem("userAdminData", JSON.stringify(adminData.data));
+        // console.log(adminData.data);
+      } catch (error) {
+        console.log("error: " + error);
+      } finally {
+        location.reload()
+      }
+    },
     // ...mapMutations([
     //   "iniciarSesion",
     //   "buscarUsuario",
@@ -170,13 +188,14 @@ export default {
         //   }
         // );
         let res = await axios.post(
-          "https://serviciopagina.upea.bo/api/Login-Api/",
+          "/Login-Api/",
           authJSON
         );
         localStorage.setItem("auth", res.data.authentication);
         localStorage.setItem("userAuth", JSON.stringify(res.data));
-        this.getAdminData(res);
-        location.reload();
+        this.getAdminData(res.data);
+        // console.log('return');
+        // location.reload();
         // res.data.data; // '{"answer":42}'
         // res.data.headers["Content-Type"]; // 'application/json',
         // console.log(res.data);
@@ -198,21 +217,6 @@ export default {
         console.log("error: " + error);
       } finally {
         console.log("fin");
-      }
-    },
-    async getAdminData(res) {
-      try {
-        let adminData = await axios.get(
-          `https://serviciopagina.upea.bo/api/DatosUsuarioAdmin/${res.data.credentialP}`,
-          {
-            headers: {
-              Authorization: "Bearer " + this.userAuth.token,
-            },
-          }
-        );
-        localStorage.setItem("userAdminData", adminData.data);
-      } catch (error) {
-        console.log('error: ' + error);
       }
     },
     verificarUsuario() {
@@ -290,6 +294,7 @@ export default {
       this.$router.push("/");
       // location.reload()
     }
+    axios.defaults.baseURL = 'https://serviciopagina.upea.bo/api/'
   },
 };
 </script>

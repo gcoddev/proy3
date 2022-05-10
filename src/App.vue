@@ -27,7 +27,7 @@ import AppTopBar from "./AppTopbar.vue";
 import AppMenu from "./AppMenu.vue";
 import AppConfig from "./AppConfig.vue";
 import AppFooter from "./AppFooter.vue";
-import { mapState } from 'vuex';
+import { mapState } from "vuex";
 
 export default {
   emits: ["change-theme"],
@@ -91,24 +91,24 @@ export default {
               to: "/blocks",
               badge: "NEW",
             },
-        //     {
-        //       label: "All Blocks",
-        //       icon: "pi pi-fw pi-globe",
-        //       url: "https://www.primefaces.org/primeblocks-vue",
-        //       target: "_blank",
-        //     },
+            //     {
+            //       label: "All Blocks",
+            //       icon: "pi pi-fw pi-globe",
+            //       url: "https://www.primefaces.org/primeblocks-vue",
+            //       target: "_blank",
+            //     },
           ],
         },
         {
           label: "Utilities",
           items: [
             { label: "PrimeIcons", icon: "pi pi-fw pi-prime", to: "/icons" },
-        //     {
-        //       label: "PrimeFlex",
-        //       icon: "pi pi-fw pi-desktop",
-        //       url: "https://www.primefaces.org/primeflex/",
-        //       target: "_blank",
-        //     },
+            //     {
+            //       label: "PrimeFlex",
+            //       icon: "pi pi-fw pi-desktop",
+            //       url: "https://www.primefaces.org/primeflex/",
+            //       target: "_blank",
+            //     },
           ],
         },
         {
@@ -133,77 +133,6 @@ export default {
             { label: "Empty", icon: "pi pi-fw pi-circle-off", to: "/empty" },
           ],
         },
-        // {
-        //   label: "Menu Hierarchy",
-        //   icon: "pi pi-fw pi-search",
-        //   items: [
-        //     {
-        //       label: "Submenu 1",
-        //       icon: "pi pi-fw pi-bookmark",
-        //       items: [
-        //         {
-        //           label: "Submenu 1.1",
-        //           icon: "pi pi-fw pi-bookmark",
-        //           items: [
-        //             { label: "Submenu 1.1.1", icon: "pi pi-fw pi-bookmark" },
-        //             { label: "Submenu 1.1.2", icon: "pi pi-fw pi-bookmark" },
-        //             { label: "Submenu 1.1.3", icon: "pi pi-fw pi-bookmark" },
-        //           ],
-        //         },
-        //         {
-        //           label: "Submenu 1.2",
-        //           icon: "pi pi-fw pi-bookmark",
-        //           items: [
-        //             { label: "Submenu 1.2.1", icon: "pi pi-fw pi-bookmark" },
-        //             { label: "Submenu 1.2.2", icon: "pi pi-fw pi-bookmark" },
-        //           ],
-        //         },
-        //       ],
-        //     },
-        //     {
-        //       label: "Submenu 2",
-        //       icon: "pi pi-fw pi-bookmark",
-        //       items: [
-        //         {
-        //           label: "Submenu 2.1",
-        //           icon: "pi pi-fw pi-bookmark",
-        //           items: [
-        //             { label: "Submenu 2.1.1", icon: "pi pi-fw pi-bookmark" },
-        //             { label: "Submenu 2.1.2", icon: "pi pi-fw pi-bookmark" },
-        //             { label: "Submenu 2.1.3", icon: "pi pi-fw pi-bookmark" },
-        //           ],
-        //         },
-        //         {
-        //           label: "Submenu 2.2",
-        //           icon: "pi pi-fw pi-bookmark",
-        //           items: [
-        //             { label: "Submenu 2.2.1", icon: "pi pi-fw pi-bookmark" },
-        //             { label: "Submenu 2.2.2", icon: "pi pi-fw pi-bookmark" },
-        //           ],
-        //         },
-        //       ],
-        //     },
-        //   ],
-        // },
-        // {
-        //   label: "Get Started",
-        //   items: [
-        //     {
-        //       label: "Documentation",
-        //       icon: "pi pi-fw pi-question",
-        //       command: () => {
-        //         window.location = "#/documentation";
-        //       },
-        //     },
-        //     {
-        //       label: "View Source",
-        //       icon: "pi pi-fw pi-search",
-        //       command: () => {
-        //         window.location = "https://github.com/primefaces/sakai-vue";
-        //       },
-        //     },
-        //   ],
-        // },
       ],
     };
   },
@@ -279,7 +208,7 @@ export default {
       }
 
       return true;
-    },
+    }
   },
   computed: {
     containerClass() {
@@ -304,9 +233,9 @@ export default {
         : "images/logo.svg";
     },
     verificarToken() {
-      return false
+      return false;
     },
-    ...mapState(["userAuth", 'userAdminData']),
+    ...mapState(["userAuth", "userAdminData"]),
   },
   beforeUpdate() {
     if (this.mobileMenuActive)
@@ -320,9 +249,12 @@ export default {
     AppFooter: AppFooter,
   },
   created() {
-    this.$store.state.userAuth = JSON.parse(localStorage.getItem('userAuth'))
-    this.$store.state.userAdminData = JSON.parse(localStorage.getItem('userAdminData'))
-  }
+    this.$store.state.userAuth = JSON.parse(localStorage.getItem("userAuth"));
+    this.$store.state.userAdminData = JSON.parse(
+      localStorage.getItem("userAdminData")
+    );
+    // this.addMenu()
+  },
 };
 </script>
 

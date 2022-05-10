@@ -97,6 +97,7 @@ import TriStateCheckbox from 'primevue/tristatecheckbox';
 import CodeHighlight from './AppCodeHighlight';
 import BlockViewer from './BlockViewer';
 import store from './store'
+// import axios from 'axios'
 
 router.beforeEach(function(to, from, next) {
     window.scrollTo(0, 0);
@@ -111,7 +112,9 @@ app.use(PrimeVue, { ripple: true, inputStyle: 'outlined' });
 app.use(ConfirmationService);
 app.use(ToastService);
 app.use(router);
-app.use(store)
+app.use(store);
+// app.use(axios);
+// axios.defaults.baseURL = 'https://serviciopagina.upea.bo/'
 
 app.directive('tooltip', Tooltip);
 app.directive('ripple', Ripple);
