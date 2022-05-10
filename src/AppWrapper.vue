@@ -3,7 +3,6 @@
 </template>
 
 <script>
-// import { mapMutations } from 'vuex';
 import EventBus from "./AppEventBus";
 import axios from "axios";
 import { mapMutations } from 'vuex';
@@ -53,19 +52,28 @@ export default {
       try {
         let uA = JSON.parse(localStorage.getItem("userAuth"));
         let tkn = {
-          token: uA.token,
+          'token': uA.token,
         };
         let tkv = await axios.post(
           "https://serviciopagina.upea.bo/api/VerificarToken/",
           tkn
         );
-        if (tkv.data.message == "Ocurrió un error") {
-          this.cerrarSesion()
-        } else {
+        if (tkv.status == 200) {
           console.log('token valido');
+          localStorage.setItem('auth', 'true')
+        } else {
+          this.cerrarSesion()
         }
       } catch (error) {
-        console.log(error);
+        if (error.response != undefined) {
+          if (error.response.status == 500) {
+            this.cerrarSesion()
+          } else {
+            console.log(error);
+          }
+        } else {
+          console.log('nope');
+        }
       }
     },
   },

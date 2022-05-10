@@ -19,12 +19,6 @@
             alt="UPEA logo"
             style="width: 150px"
           />
-          <!-- <img
-            :src="'layout/images/logo-' + logoColor + '.svg'"
-            alt="Sakai logo"
-            class="mb-5"
-            style="width: 81px; height: 60px"
-          /> -->
         </div>
         <div
           class="col-12"
@@ -89,26 +83,7 @@
                 placeholder="Ingrese su contraseña"
                 style="padding: 1rem"
               />
-              <!-- <Password
-              id="password1"
-              v-model="password"
-              placeholder="Ingrese su contraseña"
-              :toggleMask="true"
-              class="w-full mb-3"
-              inputClass="w-full"
-              inputStyle="padding:1rem"
-            ></Password> -->
-
               <div class="flex align-items-center justify-content-end mb-5">
-                <!-- <div class="flex align-items-center">
-                <Checkbox
-                  id="rememberme1"
-                  v-model="checked"
-                  :binary="true"
-                  class="mr-2"
-                ></Checkbox>
-                <label for="rememberme1">Remember me</label>
-              </div> -->
                 <a
                   class="
                     font-medium
@@ -136,7 +111,6 @@
 </template>
 
 <script>
-// import { mapMutations, mapState } from "vuex";
 import axios from "axios";
 
 export default {
@@ -159,34 +133,18 @@ export default {
           }
         );
         localStorage.setItem("userAdminData", JSON.stringify(adminData.data));
-        // console.log(adminData.data);
       } catch (error) {
         console.log("error: " + error);
       } finally {
         location.reload()
       }
     },
-    // ...mapMutations([
-    //   "iniciarSesion",
-    //   "buscarUsuario",
-    //   "resetUsername",
-    //   "resetPassword",
-    // ]),
     async iniciarSesion() {
       let authJSON = {
         username: this.username,
         password: this.password,
       };
       try {
-        // const res = await axios.post(
-        //   "https://serviciopagina.upea.bo/api/Login-Api/",
-        //   userAuth,
-        //   {
-        //     headers: {
-        //       "Content-Type": "application/json",
-        //     },
-        //   }
-        // );
         let res = await axios.post(
           "/Login-Api/",
           authJSON
@@ -194,29 +152,8 @@ export default {
         localStorage.setItem("auth", res.data.authentication);
         localStorage.setItem("userAuth", JSON.stringify(res.data));
         this.getAdminData(res.data);
-        // console.log('return');
-        // location.reload();
-        // res.data.data; // '{"answer":42}'
-        // res.data.headers["Content-Type"]; // 'application/json',
-        // console.log(res.data);
-
-        // await axios({
-        //   url: "https://serviciopagina.upea.bo/api/Login-Api/",
-        //   data: {
-        //     username: "Juan Pablo Valencia",
-        //     password: "JuanPa#1998",
-        //   },
-        //   headers: {
-        //     "Content-Type": "application/json",
-        //     Accept: "application/json",
-        //   },
-        // }).then((res) => {
-        //   console.log(res);
-        // });
       } catch (error) {
         console.log("error: " + error);
-      } finally {
-        console.log("fin");
       }
     },
     verificarUsuario() {
@@ -229,29 +166,6 @@ export default {
       } else {
         this.showError("Usuario", "Debe ingresar el nombre de usuario");
       }
-      // if (this.username != "") {
-      //   this.buscarUsuario();
-      //   if (this.userExist) {
-      //     if (this.password != "") {
-      //       if (this.passwordVerify == this.password) {
-      //         // this.showSuccess("Inicio sesion", "Inicio de sesion correcto");
-      //         this.iniciarSesion();
-      //       } else {
-      //         this.resetPassword();
-      //         this.showWarn("Contraseña", "Error de contraseña");
-      //       }
-      //     } else {
-      //       this.showError("Contraseña", "Debe ingresar su contraseña");
-      //     }
-      //   } else {
-      //     this.resetUsername();
-      //     this.resetPassword();
-      //     this.showWarn("Usuario", "Nombre de usuario no existe");
-      //   }
-      // } else {
-      //   this.resetPassword();
-      //   this.showError("Usuario", "Debe ingresar el nombre de usuario");
-      // }
     },
     resetPassword() {
       this.password = "";
@@ -281,18 +195,10 @@ export default {
       });
     },
   },
-  computed: {
-    // ...mapState(["username", "userExist", "passwordVerify"]),
-    // logoColor() {
-    //   if (this.$appState.darkTheme) return "white";
-    //   return "dark";
-    // },
-  },
+  computed: {},
   created() {
-    console.log("login");
     if (localStorage.getItem("auth") == "true") {
       this.$router.push("/");
-      // location.reload()
     }
     axios.defaults.baseURL = 'https://serviciopagina.upea.bo/api/'
   },
